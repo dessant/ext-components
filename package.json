@@ -11,23 +11,23 @@
     "release": "standard-version && yarn run push"
   },
   "dependencies": {
-    "@material/button": "^0.26.0",
-    "@material/checkbox": "^0.26.0",
-    "@material/dialog": "^0.26.0",
-    "@material/form-field": "^0.26.0",
-    "@material/linear-progress": "^0.25.0",
-    "@material/list": "^0.26.0",
-    "@material/menu": "^0.25.0",
-    "@material/select": "^0.26.0",
-    "@material/switch": "^0.25.0",
-    "@material/textfield": "^0.26.0",
-    "@material/theme": "^0.25.0",
+    "@material/button": "^0.27.0",
+    "@material/checkbox": "^0.27.0",
+    "@material/dialog": "^0.27.0",
+    "@material/form-field": "^0.27.0",
+    "@material/linear-progress": "^0.27.0",
+    "@material/list": "^0.27.0",
+    "@material/menu": "^0.27.0",
+    "@material/select": "^0.27.0",
+    "@material/switch": "^0.27.0",
+    "@material/textfield": "^0.27.0",
+    "@material/theme": "^0.27.0",
     "typeface-roboto": "^0.0.45",
-    "vue": "^2.5.9"
+    "vue": "^2.5.13"
   },
   "devDependencies": {
-    "npm-check-updates": "^2.13.0",
-    "standard-version": "^4.2.0"
+    "npm-check-updates": "^2.14.0",
+    "standard-version": "^4.3.0"
   },
   "private": true
 }
