@@ -1,10 +1,19 @@
 <template>
-<div class="mdc-select" role="listbox" tabindex="0">
-  <slot name="selection" :selection="value">
-    <span class="mdc-select__selected-text"></span>
-  </slot>
-  <div class="mdc-simple-menu mdc-select__menu">
-    <ul class="mdc-list mdc-simple-menu__items">
+<div class="mdc-select"
+    :class="selectClasses"
+    :aria-disabled="disabled"
+    role="listbox">
+  <div class="mdc-select__surface" tabindex="0">
+    <slot name="selection" :selection="value">
+      <div class="mdc-select__label mdc-select__label--float-above">
+        {{ label }}
+      </div>
+      <div class="mdc-select__selected-text"></div>
+      <div class="mdc-select__bottom-line"></div>
+    </slot>
+  </div>
+  <div class="mdc-menu mdc-select__menu">
+    <ul class="mdc-list mdc-menu__items">
       <slot name="options" :selection="value" :options="options">
         <li class="mdc-list-item" role="option" tabindex="0"
             v-for="option in options"
@@ -31,12 +40,32 @@ export default {
   },
 
   props: {
+    label: {
+      type: String,
+      default: ''
+    },
     options: {
       required: true
     },
     value: {
       type: String,
       required: true
+    },
+    disabled: {
+      type: Boolean,
+      default: false
+    },
+    box: {
+      type: Boolean,
+      default: false
+    }
+  },
+
+  computed: {
+    selectClasses: function() {
+      return {
+        'mdc-select--box': this.box
+      };
     }
   },
 

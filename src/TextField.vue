@@ -1,7 +1,7 @@
 <template>
 <div ref="root" class="mdc-text-field" :class="textFieldClasses">
-  <textarea v-if="multiline"
-      :id="`${id}__textarea-native`"
+  <textarea v-if="textarea"
+      :id="`${id}__native`"
       ref="textarea"
       class="mdc-text-field__input"
       :value="value"
@@ -13,21 +13,25 @@
       :cols="cols">
   </textarea>
 
-  <input v-else
+  <input v-if="!textarea"
       class="mdc-text-field__input"
       ref="input"
-      :id="`${id}__input-native`"
+      :id="`${id}__native`"
       type="text"
       :value="value"
       @focus="onFocus"
       @blur="onBlur"
       @input="onInput"
       :placeholder="placeholder"
-      :aria-label="placeholder" required>
-  <label v-if="label && !fullwidth" :for="`${id}__input-native`"
+      :aria-label="placeholder">
+
+  <label v-if="label && !fullwidth"
+      :for="`${id}__native`"
       class="mdc-text-field__label">
     {{ label }}
   </label>
+
+  <div v-if="!textarea" class="mdc-line-ripple"></div>
 </div>
 </template>
 
@@ -51,7 +55,7 @@ export default {
       type: String,
       required: false
     },
-    multiline: {
+    textarea: {
       type: Boolean,
       required: false
     },
@@ -92,7 +96,7 @@ export default {
   computed: {
     textFieldClasses: function() {
       return {
-        'mdc-text-field--multiline': this.multiline,
+        'mdc-text-field--textarea': this.textarea,
         'mdc-text-field--fullwidth': this.fullwidth
       };
     }
@@ -108,8 +112,4 @@ export default {
 $mdc-theme-primary: #1abc9c;
 
 @import '@material/textfield/mdc-text-field';
-
-.mdc-text-field__input {
-  font-size: 1rem;
-}
 </style>
