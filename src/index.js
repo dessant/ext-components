@@ -7,7 +7,7 @@ import Select from './Select';
 import Switch from './Switch';
 import TextField from './TextField';
 
-module.exports = {
+export {
   Button,
   Checkbox,
   Dialog,
