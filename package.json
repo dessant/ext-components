@@ -23,11 +23,11 @@
     "@material/textfield": "^0.31.0",
     "@material/theme": "^0.30.0",
     "typeface-roboto": "^0.0.54",
-    "vue": "^2.5.13"
+    "vue": "^2.5.17"
   },
   "devDependencies": {
-    "npm-check-updates": "^2.14.0",
-    "standard-version": "^4.3.0"
+    "npm-check-updates": "^2.14.2",
+    "standard-version": "^4.4.0"
   },
   "private": true
 }
