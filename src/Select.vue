@@ -4,8 +4,11 @@
     :aria-disabled="disabled"
     role="listbox">
   <div class="mdc-select__surface" tabindex="0">
-    <slot name="selection" :selection="value">
-      <div class="mdc-select__label mdc-select__label--float-above">
+    <slot name="selection"
+        :selection="value"
+        :label="label"
+        :labelClasses="selectLabelClasses">
+      <div class="mdc-select__label" :class="selectLabelClasses">
         {{ label }}
       </div>
       <div class="mdc-select__selected-text"></div>
@@ -49,7 +52,7 @@ export default {
     },
     value: {
       type: String,
-      required: true
+      required: false
     },
     disabled: {
       type: Boolean,
@@ -66,6 +69,19 @@ export default {
       return {
         'mdc-select--box': this.box
       };
+    },
+    selectLabelClasses: function() {
+      return {
+        'mdc-select__label--float-above': this.value
+      };
+    }
+  },
+
+  watch: {
+    value: function(value) {
+      if (!value && this.select) {
+        this.select.selectedIndex = -1;
+      }
     }
   },
 
@@ -89,3 +105,4 @@ $mdc-theme-primary: #1abc9c;
 @import '@material/list/mdc-list';
 @import '@material/menu/mdc-menu';
 </style>
+
