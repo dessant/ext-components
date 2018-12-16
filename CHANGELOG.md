@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.1.6"></a>
+## [0.1.6](https://github.com/dessant/ext-components/compare/v0.1.5...v0.1.6) (2018-12-16)
+
+
+### Bug Fixes
+
+* allow unsetting selected value in Select ([fb04e00](https://github.com/dessant/ext-components/commit/fb04e00))
+
+
+
 <a name="0.1.5"></a>
 ## [0.1.5](https://github.com/dessant/ext-components/compare/v0.1.4...v0.1.5) (2018-08-14)
 
