@@ -26,8 +26,8 @@
     "vue": "^2.5.17"
   },
   "devDependencies": {
-    "npm-check-updates": "^2.14.2",
-    "prettier": "^1.15.2",
+    "npm-check-updates": "^2.15.0",
+    "prettier": "^1.15.3",
     "standard-version": "^4.4.0"
   },
   "private": true
