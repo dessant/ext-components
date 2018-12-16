@@ -1,3 +1,4 @@
+<!-- prettier-ignore -->
 <template>
 <aside :id="id"
     class="mdc-dialog"
@@ -135,8 +136,8 @@ $mdc-theme-primary: #1abc9c;
 @media (max-width: 767px) {
   .scrollable-body {
     max-height: 195px;
-    border-top: 1px solid rgba(0, 0, 0, .1);
-    border-bottom: 1px solid rgba(0, 0, 0, .1);
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     overflow-x: auto;
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;

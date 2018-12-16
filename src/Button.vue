@@ -1,3 +1,4 @@
+<!-- prettier-ignore -->
 <template>
 <button class="mdc-button"
     :class="classes"

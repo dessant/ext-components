@@ -1,3 +1,4 @@
+<!-- prettier-ignore -->
 <template>
 <div ref="root" class="mdc-text-field" :class="textFieldClasses">
   <textarea v-if="textarea"

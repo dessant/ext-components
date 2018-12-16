@@ -1,3 +1,4 @@
+<!-- prettier-ignore -->
 <template>
 <div class="mdc-select"
     :class="selectClasses"
@@ -105,4 +106,3 @@ $mdc-theme-primary: #1abc9c;
 @import '@material/list/mdc-list';
 @import '@material/menu/mdc-menu';
 </style>
-

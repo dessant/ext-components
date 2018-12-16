@@ -1,3 +1,4 @@
+<!-- prettier-ignore -->
 <template>
 <div class="mdc-form-field" :class="formFieldClasses">
   <slot></slot>

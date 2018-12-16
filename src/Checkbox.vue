@@ -1,3 +1,4 @@
+<!-- prettier-ignore -->
 <template>
 <div class="mdc-checkbox" :class="checkboxClasses">
   <input type="checkbox" class="mdc-checkbox__native-control"

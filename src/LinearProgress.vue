@@ -1,3 +1,4 @@
+<!-- prettier-ignore -->
 <template>
 <div role="progressbar" class="mdc-linear-progress" :class="classes">
   <div class="mdc-linear-progress__buffering-dots"></div>
