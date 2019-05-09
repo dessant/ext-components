@@ -1,8 +1,9 @@
 <!-- prettier-ignore -->
 <template>
-<div class="mdc-checkbox" :class="checkboxClasses">
+<div class="mdc-checkbox">
   <input type="checkbox" class="mdc-checkbox__native-control"
       :checked="checked"
+      :disabled="disabled"
       :id="`${id}__native`"
       @change="$emit('change', $event.target.checked)">
   <div class="mdc-checkbox__background">
@@ -19,18 +20,9 @@
 
 <script>
 import {MDCCheckbox} from '@material/checkbox';
-import {MDCRipple} from '@material/ripple';
 
 export default {
   name: 'v-checkbox',
-
-  computed: {
-    checkboxClasses: function() {
-      return {
-        'mdc-checkbox--disabled': this.disabled
-      };
-    }
-  },
 
   model: {
     prop: 'checked',
@@ -53,8 +45,6 @@ export default {
 
   mounted: function() {
     const mdcCheckbox = new MDCCheckbox(this.$el);
-    const ripple = new MDCRipple(this.$el);
-    ripple.unbounded = true;
     this.$nextTick(function() {
       this.$parent.$emit('input-mounted', mdcCheckbox);
     });

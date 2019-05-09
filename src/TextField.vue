@@ -1,6 +1,6 @@
 <!-- prettier-ignore -->
 <template>
-<div ref="root" class="mdc-text-field" :class="textFieldClasses">
+<div class="mdc-text-field" :class="textFieldClasses">
   <textarea v-if="textarea"
       :id="`${id}__native`"
       ref="textarea"
@@ -28,7 +28,7 @@
 
   <label v-if="label && !fullwidth"
       :for="`${id}__native`"
-      class="mdc-text-field__label">
+      class="mdc-floating-label">
     {{ label }}
   </label>
 
@@ -74,12 +74,6 @@ export default {
     }
   },
 
-  data: function() {
-    return {
-      textField: null
-    };
-  },
-
   methods: {
     onFocus: function() {
       this.$emit('focus');
@@ -104,7 +98,7 @@ export default {
   },
 
   mounted: function() {
-    this.textField = new MDCTextField(this.$refs.root);
+    this.textField = new MDCTextField(this.$el);
   }
 };
 </script>

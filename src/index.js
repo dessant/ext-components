@@ -2,6 +2,7 @@ import Button from './Button';
 import Checkbox from './Checkbox';
 import Dialog from './Dialog';
 import FormField from './FormField';
+import IconButton from './IconButton';
 import LinearProgress from './LinearProgress';
 import Select from './Select';
 import Switch from './Switch';
@@ -12,6 +13,7 @@ export {
   Checkbox,
   Dialog,
   FormField,
+  IconButton,
   LinearProgress,
   Select,
   Switch,

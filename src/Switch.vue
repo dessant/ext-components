@@ -1,17 +1,22 @@
 <!-- prettier-ignore -->
 <template>
 <div class="mdc-switch" :class="switchClasses">
-  <input type="checkbox" class="mdc-switch__native-control"
-      :checked="checked"
-      :id="`${id}__native`"
-      @change="$emit('change', $event.target.checked)">
-  <div class="mdc-switch__background">
-    <div class="mdc-switch__knob"></div>
+  <div class="mdc-switch__track"></div>
+  <div class="mdc-switch__thumb-underlay">
+    <div class="mdc-switch__thumb">
+      <input type="checkbox" class="mdc-switch__native-control" role="switch"
+          :checked="checked"
+          :disabled="disabled"
+          :id="`${id}__native`"
+          @change="$emit('change', $event.target.checked)">
+    </div>
   </div>
 </div>
 </template>
 
 <script>
+import {MDCSwitch} from '@material/switch';
+
 export default {
   name: 'v-switch',
 
@@ -40,6 +45,13 @@ export default {
       type: Boolean,
       default: false
     }
+  },
+
+  mounted: function() {
+    const mdcSwitch = new MDCSwitch(this.$el);
+    this.$nextTick(function() {
+      this.$parent.$emit('input-mounted', mdcSwitch);
+    });
   }
 };
 </script>

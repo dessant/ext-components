@@ -1,6 +1,6 @@
 <!-- prettier-ignore -->
 <template>
-<div role="progressbar" class="mdc-linear-progress" :class="classes">
+<div role="progressbar" class="mdc-linear-progress">
   <div class="mdc-linear-progress__buffering-dots"></div>
   <div class="mdc-linear-progress__buffer"></div>
   <div class="mdc-linear-progress__bar mdc-linear-progress__primary-bar">
@@ -18,11 +18,11 @@ import {MDCLinearProgress} from '@material/linear-progress';
 export default {
   name: 'v-linear-progress',
   props: {
-    indeterminate: {
+    determinate: {
       type: Boolean,
-      default: false
+      default: true
     },
-    reversed: {
+    reverse: {
       type: Boolean,
       default: false
     },
@@ -36,24 +36,27 @@ export default {
     }
   },
 
-  data: function() {
-    return {
-      bar: null,
-
-      classes: {
-        'mdc-linear-progress--indeterminate': this.indeterminate,
-        'mdc-linear-progress--reversed': this.reversed
-      }
-    };
-  },
-
   mounted: function() {
     this.bar = new MDCLinearProgress(this.$el);
+    this.bar.determinate = this.determinate;
+    this.bar.reverse = this.reverse;
     this.bar.progress = this.progress;
     this.bar.buffer = this.buffer;
+
+    this.bar.open();
   },
 
   watch: {
+    determinate: function(value) {
+      if (this.bar) {
+        this.bar.determinate = value;
+      }
+    },
+    reverse: function(value) {
+      if (this.bar) {
+        this.bar.reverse = value;
+      }
+    },
     progress: function(value) {
       if (this.bar) {
         this.bar.progress = value;

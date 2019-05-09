@@ -26,15 +26,11 @@ export default {
       type: Boolean,
       default: false
     },
-    stroked: {
+    outlined: {
       type: Boolean,
       default: false
     },
     dense: {
-      type: Boolean,
-      default: false
-    },
-    compact: {
       type: Boolean,
       default: false
     },
@@ -49,9 +45,8 @@ export default {
       classes: {
         'mdc-button--raised': this.raised,
         'mdc-button--unelevated': this.unelevated,
-        'mdc-button--stroked': this.stroked,
-        'mdc-button--dense': this.dense,
-        'mdc-button--compact': this.compact
+        'mdc-button--outlined': this.outlined,
+        'mdc-button--dense': this.dense
       }
     };
   },

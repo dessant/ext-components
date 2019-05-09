@@ -6,29 +6,30 @@
   "license": "MIT",
   "main": "src/index.js",
   "scripts": {
-    "update": "ncu --upgrade --upgradeAll && yarn",
+    "update": "ncu --upgrade && yarn",
     "push": "git push --follow-tags origin master",
-    "release": "standard-version && yarn run push"
+    "release": "standard-version"
   },
   "dependencies": {
-    "@material/button": "^0.31.0",
-    "@material/checkbox": "^0.31.0",
-    "@material/dialog": "^0.31.0",
-    "@material/form-field": "^0.31.0",
-    "@material/linear-progress": "^0.30.0",
-    "@material/list": "^0.31.0",
-    "@material/menu": "^0.31.0",
-    "@material/select": "^0.31.0",
-    "@material/switch": "^0.31.0",
-    "@material/textfield": "^0.31.0",
-    "@material/theme": "^0.30.0",
+    "@material/button": "^2.0.0",
+    "@material/checkbox": "^2.1.0",
+    "@material/dialog": "^2.0.0",
+    "@material/form-field": "^2.0.0",
+    "@material/icon-button": "^2.0.0",
+    "@material/linear-progress": "^1.1.0",
+    "@material/list": "^2.0.0",
+    "@material/menu": "^2.0.0",
+    "@material/menu-surface": "^1.1.1",
+    "@material/select": "^2.0.0",
+    "@material/switch": "^2.0.0",
+    "@material/textfield": "^2.1.0",
     "typeface-roboto": "^0.0.54",
-    "vue": "^2.5.17"
+    "vue": "^2.6.10"
   },
   "devDependencies": {
-    "npm-check-updates": "^2.15.0",
-    "prettier": "^1.15.3",
-    "standard-version": "^4.4.0"
+    "npm-check-updates": "^3.1.9",
+    "prettier": "^1.17.0",
+    "standard-version": "^6.0.1"
   },
   "private": true
 }

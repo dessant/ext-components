@@ -1,34 +1,21 @@
 <!-- prettier-ignore -->
 <template>
-<div class="mdc-select"
-    :class="selectClasses"
-    :aria-disabled="disabled"
-    role="listbox">
-  <div class="mdc-select__surface" tabindex="0">
-    <slot name="selection"
-        :selection="value"
-        :label="label"
-        :labelClasses="selectLabelClasses">
-      <div class="mdc-select__label" :class="selectLabelClasses">
-        {{ label }}
-      </div>
-      <div class="mdc-select__selected-text"></div>
-      <div class="mdc-select__bottom-line"></div>
-    </slot>
-  </div>
-  <div class="mdc-menu mdc-select__menu">
-    <ul class="mdc-list mdc-menu__items">
-      <slot name="options" :selection="value" :options="options">
-        <li class="mdc-list-item" role="option" tabindex="0"
-            v-for="option in options"
-            :key="option.id"
-            :id="option.id"
-            :aria-selected="value === option.id">
-          {{ option.label }}
-        </li>
-      </slot>
+<div class="mdc-select">
+  <input type="hidden" name="enhanced-select">
+  <i class="mdc-select__dropdown-icon"></i>
+  <div class="mdc-select__selected-text"></div>
+  <div class="mdc-select__menu mdc-menu mdc-menu-surface">
+    <ul class="mdc-list">
+      <li class="mdc-list-item" role="option"
+          v-for="option of options"
+          :key="option.id"
+          :data-value="option.id">
+        {{ option.label }}
+      </li>
     </ul>
   </div>
+  <span class="mdc-floating-label">{{ label }}</span>
+  <div class="mdc-line-ripple"></div>
 </div>
 </template>
 
@@ -58,23 +45,6 @@ export default {
     disabled: {
       type: Boolean,
       default: false
-    },
-    box: {
-      type: Boolean,
-      default: false
-    }
-  },
-
-  computed: {
-    selectClasses: function() {
-      return {
-        'mdc-select--box': this.box
-      };
-    },
-    selectLabelClasses: function() {
-      return {
-        'mdc-select__label--float-above': this.value
-      };
     }
   },
 
@@ -82,6 +52,11 @@ export default {
     value: function(value) {
       if (!value && this.select) {
         this.select.selectedIndex = -1;
+      }
+    },
+    disabled: function(value) {
+      if (this.select) {
+        this.select.disabled = value;
       }
     }
   },
@@ -95,6 +70,14 @@ export default {
   mounted: function() {
     this.select = new MDCSelect(this.$el);
     this.select.listen('MDCSelect:change', this.onChange);
+
+    this.select.disabled = this.disabled;
+    for (const [index, option] of this.options.entries()) {
+      if (option.id === this.value) {
+        this.select.selectedIndex = index;
+        break;
+      }
+    }
   }
 };
 </script>
@@ -102,7 +85,8 @@ export default {
 <style lang="scss">
 $mdc-theme-primary: #1abc9c;
 
-@import '@material/select/mdc-select';
 @import '@material/list/mdc-list';
+@import '@material/menu-surface/mdc-menu-surface';
 @import '@material/menu/mdc-menu';
+@import '@material/select/mdc-select';
 </style>
