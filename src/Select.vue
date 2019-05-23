@@ -89,4 +89,9 @@ $mdc-theme-primary: #1abc9c;
 @import '@material/menu-surface/mdc-menu-surface';
 @import '@material/menu/mdc-menu';
 @import '@material/select/mdc-select';
+
+.mdc-list-item {
+  white-space: nowrap;
+  padding-right: 32px !important;
+}
 </style>
