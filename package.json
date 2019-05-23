@@ -11,24 +11,24 @@
     "release": "standard-version"
   },
   "dependencies": {
-    "@material/button": "^2.0.0",
-    "@material/checkbox": "^2.1.0",
-    "@material/dialog": "^2.0.0",
-    "@material/form-field": "^2.0.0",
-    "@material/icon-button": "^2.0.0",
+    "@material/button": "^2.1.1",
+    "@material/checkbox": "^2.1.1",
+    "@material/dialog": "^2.2.0",
+    "@material/form-field": "^2.1.1",
+    "@material/icon-button": "^2.1.1",
     "@material/linear-progress": "^1.1.0",
-    "@material/list": "^2.0.0",
-    "@material/menu": "^2.0.0",
+    "@material/list": "^2.1.1",
+    "@material/menu": "^2.2.0",
     "@material/menu-surface": "^1.1.1",
-    "@material/select": "^2.0.0",
-    "@material/switch": "^2.0.0",
-    "@material/textfield": "^2.1.0",
+    "@material/select": "^2.2.0",
+    "@material/switch": "^2.1.1",
+    "@material/textfield": "^2.1.1",
     "typeface-roboto": "^0.0.54",
     "vue": "^2.6.10"
   },
   "devDependencies": {
     "npm-check-updates": "^3.1.9",
-    "prettier": "^1.17.0",
+    "prettier": "^1.17.1",
     "standard-version": "^6.0.1"
   },
   "private": true
