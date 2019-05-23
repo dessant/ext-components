@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.1](https://github.com/dessant/ext-components/compare/v0.2.0...v0.2.1) (2019-05-23)
+
+
+### Bug Fixes
+
+* do not wrap select option text ([fd266ea](https://github.com/dessant/ext-components/commit/fd266ea))
+
+
+
 ## [0.2.0](https://github.com/dessant/ext-components/compare/v0.1.6...v0.2.0) (2019-05-09)
 
 
