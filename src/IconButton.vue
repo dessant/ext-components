@@ -1,12 +1,9 @@
-<!-- prettier-ignore -->
 <template>
-<button class="mdc-icon-button"
-    :disabled="disabled"
-    @click="$emit('click')">
-  <slot>
-    <img :src="src" class="mdc-icon-button__icon"/>
-  </slot>
-</button>
+  <button class="mdc-icon-button" :disabled="disabled" @click="$emit('click')">
+    <slot>
+      <img :src="src" class="mdc-icon-button__icon" />
+    </slot>
+  </button>
 </template>
 
 <script>

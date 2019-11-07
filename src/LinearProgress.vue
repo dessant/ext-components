@@ -1,15 +1,14 @@
-<!-- prettier-ignore -->
 <template>
-<div role="progressbar" class="mdc-linear-progress">
-  <div class="mdc-linear-progress__buffering-dots"></div>
-  <div class="mdc-linear-progress__buffer"></div>
-  <div class="mdc-linear-progress__bar mdc-linear-progress__primary-bar">
-    <span class="mdc-linear-progress__bar-inner"></span>
+  <div role="progressbar" class="mdc-linear-progress">
+    <div class="mdc-linear-progress__buffering-dots"></div>
+    <div class="mdc-linear-progress__buffer"></div>
+    <div class="mdc-linear-progress__bar mdc-linear-progress__primary-bar">
+      <span class="mdc-linear-progress__bar-inner"></span>
+    </div>
+    <div class="mdc-linear-progress__bar mdc-linear-progress__secondary-bar">
+      <span class="mdc-linear-progress__bar-inner"></span>
+    </div>
   </div>
-  <div class="mdc-linear-progress__bar mdc-linear-progress__secondary-bar">
-    <span class="mdc-linear-progress__bar-inner"></span>
-  </div>
-</div>
 </template>
 
 <script>
@@ -33,6 +32,10 @@ export default {
     buffer: {
       type: Number,
       default: 1
+    },
+    open: {
+      type: Boolean,
+      default: false
     }
   },
 
@@ -43,7 +46,11 @@ export default {
     this.bar.progress = this.progress;
     this.bar.buffer = this.buffer;
 
-    this.bar.open();
+    if (this.open) {
+      this.bar.open();
+    } else {
+      this.bar.close();
+    }
   },
 
   watch: {
@@ -65,6 +72,15 @@ export default {
     buffer: function(value) {
       if (this.bar) {
         this.bar.buffer = value;
+      }
+    },
+    open: function(value) {
+      if (this.bar) {
+        if (value) {
+          this.bar.open();
+        } else {
+          this.bar.close();
+        }
       }
     }
   }

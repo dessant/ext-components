@@ -1,11 +1,14 @@
-<!-- prettier-ignore -->
 <template>
-<button class="mdc-button"
+  <button
+    class="mdc-button"
     :class="classes"
     :disabled="disabled"
-    @click="$emit('click')">
-  <slot></slot>
-</button>
+    @click="$emit('click')"
+  >
+    <div class="mdc-button__ripple"></div>
+    <span v-if="label" class="mdc-button__label">{{ label }}</span>
+    <slot></slot>
+  </button>
 </template>
 
 <script>
@@ -14,6 +17,10 @@ import {MDCRipple} from '@material/ripple';
 export default {
   name: 'v-button',
   props: {
+    label: {
+      type: String,
+      default: ''
+    },
     disabled: {
       type: Boolean,
       default: false
@@ -30,10 +37,6 @@ export default {
       type: Boolean,
       default: false
     },
-    dense: {
-      type: Boolean,
-      default: false
-    },
     ripple: {
       type: Boolean,
       default: true
@@ -45,8 +48,7 @@ export default {
       classes: {
         'mdc-button--raised': this.raised,
         'mdc-button--unelevated': this.unelevated,
-        'mdc-button--outlined': this.outlined,
-        'mdc-button--dense': this.dense
+        'mdc-button--outlined': this.outlined
       }
     };
   },

@@ -1,22 +1,37 @@
-<!-- prettier-ignore -->
 <template>
-<div class="mdc-select">
-  <input type="hidden" name="enhanced-select">
-  <i class="mdc-select__dropdown-icon"></i>
-  <div class="mdc-select__selected-text"></div>
-  <div class="mdc-select__menu mdc-menu mdc-menu-surface">
-    <ul class="mdc-list">
-      <li class="mdc-list-item" role="option"
+  <div class="mdc-select" :class="classes">
+    <div v-if="outlined" class="mdc-select__anchor">
+      <i class="mdc-select__dropdown-icon"></i>
+      <div class="mdc-select__selected-text"></div>
+      <div class="mdc-notched-outline">
+        <div class="mdc-notched-outline__leading"></div>
+        <div class="mdc-notched-outline__notch">
+          <label class="mdc-floating-label">{{ label }}</label>
+        </div>
+        <div class="mdc-notched-outline__trailing"></div>
+      </div>
+    </div>
+    <div v-else class="mdc-select__anchor">
+      <i class="mdc-select__dropdown-icon"></i>
+      <div class="mdc-select__selected-text"></div>
+      <span class="mdc-floating-label">{{ label }}</span>
+      <div class="mdc-line-ripple"></div>
+    </div>
+
+    <div class="mdc-select__menu mdc-menu mdc-menu-surface">
+      <ul class="mdc-list">
+        <li
+          class="mdc-list-item"
           v-for="option of options"
           :key="option.id"
-          :data-value="option.id">
-        {{ option.label }}
-      </li>
-    </ul>
+          :data-value="option.id"
+          :aria-selected="option.id === value"
+        >
+          {{ option.label }}
+        </li>
+      </ul>
+    </div>
   </div>
-  <span class="mdc-floating-label">{{ label }}</span>
-  <div class="mdc-line-ripple"></div>
-</div>
 </template>
 
 <script>
@@ -24,6 +39,14 @@ import {MDCSelect} from '@material/select';
 
 export default {
   name: 'v-select',
+
+  data: function() {
+    return {
+      classes: {
+        'mdc-select--outlined': this.outlined
+      }
+    };
+  },
 
   model: {
     prop: 'value',
@@ -42,6 +65,10 @@ export default {
       type: String,
       required: false
     },
+    outlined: {
+      type: Boolean,
+      default: false
+    },
     disabled: {
       type: Boolean,
       default: false
@@ -49,14 +76,14 @@ export default {
   },
 
   watch: {
-    value: function(value) {
-      if (!value && this.select) {
-        this.select.selectedIndex = -1;
+    value: function() {
+      if (this.select) {
+        this.setValue();
       }
     },
-    disabled: function(value) {
+    disabled: function() {
       if (this.select) {
-        this.select.disabled = value;
+        this.setDisabled();
       }
     }
   },
@@ -64,6 +91,23 @@ export default {
   methods: {
     onChange: function() {
       this.$emit('change', this.select.value);
+    },
+
+    setDisabled: function() {
+      this.select.disabled = this.disabled;
+    },
+
+    setValue: function() {
+      if (!this.value) {
+        this.select.selectedIndex = -1;
+      } else {
+        for (const [index, option] of this.options.entries()) {
+          if (option.id === this.value) {
+            this.select.selectedIndex = index;
+            break;
+          }
+        }
+      }
     }
   },
 
@@ -71,13 +115,8 @@ export default {
     this.select = new MDCSelect(this.$el);
     this.select.listen('MDCSelect:change', this.onChange);
 
-    this.select.disabled = this.disabled;
-    for (const [index, option] of this.options.entries()) {
-      if (option.id === this.value) {
-        this.select.selectedIndex = index;
-        break;
-      }
-    }
+    this.setDisabled();
+    this.setValue();
   }
 };
 </script>

@@ -1,17 +1,20 @@
-<!-- prettier-ignore -->
 <template>
-<div class="mdc-switch" :class="switchClasses">
-  <div class="mdc-switch__track"></div>
-  <div class="mdc-switch__thumb-underlay">
-    <div class="mdc-switch__thumb">
-      <input type="checkbox" class="mdc-switch__native-control" role="switch"
+  <div class="mdc-switch" :class="switchClasses">
+    <div class="mdc-switch__track"></div>
+    <div class="mdc-switch__thumb-underlay">
+      <div class="mdc-switch__thumb">
+        <input
+          type="checkbox"
+          class="mdc-switch__native-control"
+          role="switch"
           :checked="checked"
           :disabled="disabled"
           :id="`${id}__native`"
-          @change="$emit('change', $event.target.checked)">
+          @change="$emit('change', $event.target.checked)"
+        />
+      </div>
     </div>
   </div>
-</div>
 </template>
 
 <script>

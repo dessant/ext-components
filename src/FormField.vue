@@ -1,9 +1,8 @@
-<!-- prettier-ignore -->
 <template>
-<div class="mdc-form-field" :class="formFieldClasses">
-  <slot></slot>
-  <label :for="`${inputId}__native`">{{ label }}</label>
-</div>
+  <div class="mdc-form-field" :class="formFieldClasses">
+    <slot></slot>
+    <label :for="`${inputId}__native`">{{ label }}</label>
+  </div>
 </template>
 
 <script>
@@ -42,8 +41,8 @@ export default {
   },
 
   methods: {
-    onInputMounted: function(data) {
-      this.mdcFormField.input = data;
+    onInputMounted: function(input) {
+      this.mdcFormField.input = input;
     }
   },
 
