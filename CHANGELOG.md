@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.1](https://github.com/dessant/ext-components/compare/v0.3.0...v0.3.1) (2019-12-02)
+
+
+### Bug Fixes
+
+* do not animate progress buffering dots when they are not visible ([0c26197](https://github.com/dessant/ext-components/commit/0c26197dc28a2e5aa2c69b5e7436d8715600493c))
+
 ## [0.3.0](https://github.com/dessant/ext-components/compare/v0.2.2...v0.3.0) (2019-11-07)
 
 
