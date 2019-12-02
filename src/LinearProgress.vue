@@ -1,6 +1,9 @@
 <template>
   <div role="progressbar" class="mdc-linear-progress">
-    <div class="mdc-linear-progress__buffering-dots"></div>
+    <div
+      class="mdc-linear-progress__buffering-dots"
+      :class="bufferingClasses"
+    ></div>
     <div class="mdc-linear-progress__buffer"></div>
     <div class="mdc-linear-progress__bar mdc-linear-progress__primary-bar">
       <span class="mdc-linear-progress__bar-inner"></span>
@@ -36,6 +39,14 @@ export default {
     open: {
       type: Boolean,
       default: false
+    }
+  },
+
+  computed: {
+    bufferingClasses: function() {
+      return {
+        buffering__stop: this.buffer === 1 || this.progress === 1
+      };
     }
   },
 
@@ -91,4 +102,8 @@ export default {
 $mdc-theme-primary: #1abc9c;
 
 @import '@material/linear-progress/mdc-linear-progress';
+
+.buffering__stop {
+  animation: none;
+}
 </style>
