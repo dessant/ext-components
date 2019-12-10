@@ -7,6 +7,7 @@ import LinearProgress from './LinearProgress';
 import Select from './Select';
 import Switch from './Switch';
 import TextField from './TextField';
+import Menu from './Menu';
 
 export {
   Button,
@@ -17,5 +18,6 @@ export {
   LinearProgress,
   Select,
   Switch,
-  TextField
+  TextField,
+  Menu
 };
