@@ -5,6 +5,7 @@
       role="menu"
       aria-hidden="true"
       aria-orientation="vertical"
+      tabindex="-1"
     >
       <slot name="items" :items="items">
         <li
@@ -22,7 +23,7 @@
 </template>
 
 <script>
-import {MDCMenu} from '@material/menu';
+import {MDCMenu, DefaultFocusState} from '@material/menu';
 import {MDCRipple} from '@material/ripple';
 
 export default {
@@ -52,6 +53,7 @@ export default {
         this.menu.open = true;
 
         if (this.focusItem) {
+          this.menu.setDefaultFocusState(DefaultFocusState.NONE);
           this.$el.querySelector(`li[data-value="${this.focusItem}"]`).focus();
         }
       }
