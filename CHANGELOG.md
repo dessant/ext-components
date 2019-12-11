@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.4.0](https://github.com/dessant/ext-components/compare/v0.3.1...v0.4.0) (2019-12-11)
+
+
+### Features
+
+* add menu component ([fdbd752](https://github.com/dessant/ext-components/commit/fdbd752f526ab0eec236f9496f060383ee38b9d5))
+
+
+### Bug Fixes
+
+* set focus state ([69889d5](https://github.com/dessant/ext-components/commit/69889d5687c8fb6850169d9d4a7118a3773d57ad))
+
 ### [0.3.1](https://github.com/dessant/ext-components/compare/v0.3.0...v0.3.1) (2019-12-02)
 
 
