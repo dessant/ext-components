@@ -2,8 +2,13 @@
   "name": "ext-components",
   "version": "0.4.1",
   "author": "Armin Sebastian",
-  "repository": "https://github.com/dessant/ext-components",
   "license": "MIT",
+  "homepage": "https://github.com/dessant/ext-components",
+  "repository": {
+    "url": "https://github.com/dessant/ext-components.git",
+    "type": "git"
+  },
+  "type": "module",
   "main": "src/index.js",
   "scripts": {
     "update": "ncu --upgrade",
@@ -25,13 +30,13 @@
     "@material/textfield": "^4.0.0"
   },
   "peerDependencies": {
-    "@fontsource/roboto": "^4.5.0",
+    "@fontsource/roboto": "^4.5.5",
     "vue": "^2.6.14"
   },
   "devDependencies": {
-    "npm-check-updates": "^11.8.3",
-    "prettier": "^2.3.2",
-    "standard-version": "^9.3.1"
+    "npm-check-updates": "^12.5.11",
+    "prettier": "^2.6.2",
+    "standard-version": "^9.3.2"
   },
   "private": true
 }
