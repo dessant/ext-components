@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.4.2](https://github.com/dessant/ext-components/compare/v0.4.1...v0.4.2) (2022-05-11)
+
+
+### Bug Fixes
+
+* emit event when dialog is dismissed ([23cca2d](https://github.com/dessant/ext-components/commit/23cca2d9555b1dfb99e70759da416e9f3d4b06a1))
+
 ### [0.4.1](https://github.com/dessant/ext-components/compare/v0.4.0...v0.4.1) (2021-08-03)
 
 ## [0.4.0](https://github.com/dessant/ext-components/compare/v0.3.1...v0.4.0) (2019-12-11)
