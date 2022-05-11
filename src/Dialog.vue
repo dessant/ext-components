@@ -72,27 +72,27 @@ export default {
   },
 
   computed: {
-    labelId: function() {
+    labelId: function () {
       return this.id ? `${this.id}__label` : false;
     },
-    descriptionId: function() {
+    descriptionId: function () {
       return this.id ? `${this.id}__description` : false;
     }
   },
 
-  mounted: function() {
+  mounted: function () {
     this.dialog = new MDCDialog(this.$el);
     this.dialog.listen('MDCDialog:closing', ev => {
       if (ev.detail.action === 'accept') {
         this.$emit('accept');
-      } else if (ev.detail.action === 'cancel') {
+      } else if (['cancel', 'close'].includes(ev.detail.action)) {
         this.$emit('cancel');
       }
     });
   },
 
   watch: {
-    showDialog: function(show) {
+    showDialog: function (show) {
       if (show) {
         this.dialog.open();
       } else {
