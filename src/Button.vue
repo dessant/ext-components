@@ -16,6 +16,7 @@ import {MDCRipple} from '@material/ripple';
 
 export default {
   name: 'v-button',
+
   props: {
     label: {
       type: String,
@@ -43,7 +44,9 @@ export default {
     }
   },
 
-  data: function() {
+  emits: ['click'],
+
+  data: function () {
     return {
       classes: {
         'mdc-button--raised': this.raised,
@@ -53,7 +56,7 @@ export default {
     };
   },
 
-  mounted: function() {
+  mounted: function () {
     if (this.ripple) {
       MDCRipple.attachTo(this.$el);
     }

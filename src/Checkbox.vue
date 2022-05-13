@@ -6,7 +6,7 @@
       :checked="checked"
       :disabled="disabled"
       :id="`${id}__native`"
-      @change="$emit('change', $event.target.checked)"
+      @change="$emit('update:checked', $event.target.checked)"
     />
     <div class="mdc-checkbox__background">
       <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
@@ -29,11 +29,6 @@ import {MDCCheckbox} from '@material/checkbox';
 export default {
   name: 'v-checkbox',
 
-  model: {
-    prop: 'checked',
-    event: 'change'
-  },
-
   props: {
     id: {
       type: String,
@@ -48,10 +43,12 @@ export default {
     }
   },
 
-  mounted: function() {
+  emits: ['update:checked', 'input-mounted'],
+
+  mounted: function () {
     const mdcCheckbox = new MDCCheckbox(this.$el);
-    this.$nextTick(function() {
-      this.$parent.$emit('input-mounted', mdcCheckbox);
+    this.$nextTick(function () {
+      this.$parent.emitter.emit('input-mounted', mdcCheckbox);
     });
   }
 };

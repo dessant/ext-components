@@ -71,6 +71,8 @@ export default {
     }
   },
 
+  emits: ['accept', 'cancel'],
+
   computed: {
     labelId: function () {
       return this.id ? `${this.id}__label` : false;

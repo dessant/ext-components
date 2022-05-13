@@ -26,7 +26,9 @@ export default {
     }
   },
 
-  mounted: function() {
+  emits: ['click'],
+
+  mounted: function () {
     if (this.ripple) {
       const iconButtonRipple = new MDCRipple(this.$el);
       iconButtonRipple.unbounded = true;

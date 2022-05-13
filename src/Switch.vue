@@ -10,7 +10,7 @@
           :checked="checked"
           :disabled="disabled"
           :id="`${id}__native`"
-          @change="$emit('change', $event.target.checked)"
+          @change="$emit('update:checked', $event.target.checked)"
         />
       </div>
     </div>
@@ -24,16 +24,11 @@ export default {
   name: 'v-switch',
 
   computed: {
-    switchClasses: function() {
+    switchClasses: function () {
       return {
         'mdc-switch--disabled': this.disabled
       };
     }
-  },
-
-  model: {
-    prop: 'checked',
-    event: 'change'
   },
 
   props: {
@@ -50,10 +45,12 @@ export default {
     }
   },
 
-  mounted: function() {
+  emits: ['update:checked', 'input-mounted'],
+
+  mounted: function () {
     const mdcSwitch = new MDCSwitch(this.$el);
-    this.$nextTick(function() {
-      this.$parent.$emit('input-mounted', mdcSwitch);
+    this.$nextTick(function () {
+      this.$parent.emitter.emit('input-mounted', mdcSwitch);
     });
   }
 };

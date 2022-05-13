@@ -93,22 +93,24 @@ export default {
     }
   },
 
+  emits: ['focus', 'blur', 'update:value'],
+
   methods: {
-    onFocus: function() {
+    onFocus: function () {
       this.$emit('focus');
     },
 
-    onBlur: function() {
+    onBlur: function () {
       this.$emit('blur');
     },
 
-    onInput: function(event) {
-      this.$emit('input', event.target.value);
+    onInput: function (event) {
+      this.$emit('update:value', event.target.value);
     }
   },
 
   computed: {
-    textFieldClasses: function() {
+    textFieldClasses: function () {
       return {
         'mdc-text-field--textarea': this.textarea,
         'mdc-text-field--fullwidth': this.fullwidth,
@@ -117,7 +119,7 @@ export default {
     }
   },
 
-  mounted: function() {
+  mounted: function () {
     this.textField = new MDCTextField(this.$el);
   }
 };

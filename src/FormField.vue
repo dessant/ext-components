@@ -7,6 +7,7 @@
 
 <script>
 import {MDCFormField} from '@material/form-field';
+import mitt from 'mitt';
 
 export default {
   name: 'v-form-field',
@@ -26,14 +27,14 @@ export default {
     }
   },
 
-  data: function() {
+  data: function () {
     return {
       mdcFormField: null
     };
   },
 
   computed: {
-    formFieldClasses: function() {
+    formFieldClasses: function () {
       return {
         'mdc-form-field--align-end': this.alignEnd
       };
@@ -41,16 +42,17 @@ export default {
   },
 
   methods: {
-    onInputMounted: function(input) {
+    onInputMounted: function (input) {
       this.mdcFormField.input = input;
     }
   },
 
-  created: function() {
-    this.$on('input-mounted', this.onInputMounted);
+  created: function () {
+    this.emitter = mitt();
+    this.emitter.on('input-mounted', this.onInputMounted);
   },
 
-  mounted: function() {
+  mounted: function () {
     this.mdcFormField = new MDCFormField(this.$el);
   }
 };
