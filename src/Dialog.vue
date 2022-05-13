@@ -46,7 +46,10 @@ import Button from './Button';
 
 export default {
   name: 'v-dialog',
-  components: {[Button.name]: Button},
+
+  components: {
+    [Button.name]: Button
+  },
 
   props: {
     id: {
@@ -106,7 +109,5 @@ export default {
 </script>
 
 <style lang="scss">
-$mdc-theme-primary: #1abc9c;
-
 @import '@material/dialog/mdc-dialog';
 </style>

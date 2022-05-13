@@ -95,6 +95,16 @@ export default {
 
   emits: ['focus', 'blur', 'update:value'],
 
+  computed: {
+    textFieldClasses: function () {
+      return {
+        'mdc-text-field--textarea': this.textarea,
+        'mdc-text-field--fullwidth': this.fullwidth,
+        'mdc-text-field--outlined': this.outlined
+      };
+    }
+  },
+
   methods: {
     onFocus: function () {
       this.$emit('focus');
@@ -109,16 +119,6 @@ export default {
     }
   },
 
-  computed: {
-    textFieldClasses: function () {
-      return {
-        'mdc-text-field--textarea': this.textarea,
-        'mdc-text-field--fullwidth': this.fullwidth,
-        'mdc-text-field--outlined': this.outlined
-      };
-    }
-  },
-
   mounted: function () {
     this.textField = new MDCTextField(this.$el);
   }
@@ -126,7 +126,5 @@ export default {
 </script>
 
 <style lang="scss">
-$mdc-theme-primary: #1abc9c;
-
 @import '@material/textfield/mdc-text-field';
 </style>

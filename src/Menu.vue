@@ -92,8 +92,6 @@ export default {
 </script>
 
 <style lang="scss">
-$mdc-theme-primary: #1abc9c;
-
 @import '@material/list/mdc-list';
 @import '@material/menu-surface/mdc-menu-surface';
 @import '@material/menu/mdc-menu';

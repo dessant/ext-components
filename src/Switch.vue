@@ -23,14 +23,6 @@ import {MDCSwitch} from '@material/switch';
 export default {
   name: 'v-switch',
 
-  computed: {
-    switchClasses: function () {
-      return {
-        'mdc-switch--disabled': this.disabled
-      };
-    }
-  },
-
   props: {
     id: {
       type: String,
@@ -47,6 +39,14 @@ export default {
 
   emits: ['update:checked', 'input-mounted'],
 
+  computed: {
+    switchClasses: function () {
+      return {
+        'mdc-switch--disabled': this.disabled
+      };
+    }
+  },
+
   mounted: function () {
     const mdcSwitch = new MDCSwitch(this.$el);
     this.$nextTick(function () {
@@ -57,7 +57,5 @@ export default {
 </script>
 
 <style lang="scss">
-$mdc-theme-secondary: #1abc9c;
-
 @import '@material/switch/mdc-switch';
 </style>

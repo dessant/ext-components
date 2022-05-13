@@ -40,14 +40,6 @@ import {MDCSelect} from '@material/select';
 export default {
   name: 'v-select',
 
-  data: function () {
-    return {
-      classes: {
-        'mdc-select--outlined': this.outlined
-      }
-    };
-  },
-
   props: {
     label: {
       type: String,
@@ -71,6 +63,14 @@ export default {
   },
 
   emits: ['update:value'],
+
+  data: function () {
+    return {
+      classes: {
+        'mdc-select--outlined': this.outlined
+      }
+    };
+  },
 
   watch: {
     value: function () {
@@ -119,8 +119,6 @@ export default {
 </script>
 
 <style lang="scss">
-$mdc-theme-primary: #1abc9c;
-
 @import '@material/list/mdc-list';
 @import '@material/menu-surface/mdc-menu-surface';
 @import '@material/menu/mdc-menu';

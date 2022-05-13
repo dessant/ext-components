@@ -19,6 +19,7 @@ import {MDCLinearProgress} from '@material/linear-progress';
 
 export default {
   name: 'v-linear-progress',
+
   props: {
     determinate: {
       type: Boolean,
@@ -43,14 +44,14 @@ export default {
   },
 
   computed: {
-    bufferingClasses: function() {
+    bufferingClasses: function () {
       return {
         buffering__stop: this.buffer === 1 || this.progress === 1
       };
     }
   },
 
-  mounted: function() {
+  mounted: function () {
     this.bar = new MDCLinearProgress(this.$el);
     this.bar.determinate = this.determinate;
     this.bar.reverse = this.reverse;
@@ -65,27 +66,27 @@ export default {
   },
 
   watch: {
-    determinate: function(value) {
+    determinate: function (value) {
       if (this.bar) {
         this.bar.determinate = value;
       }
     },
-    reverse: function(value) {
+    reverse: function (value) {
       if (this.bar) {
         this.bar.reverse = value;
       }
     },
-    progress: function(value) {
+    progress: function (value) {
       if (this.bar) {
         this.bar.progress = value;
       }
     },
-    buffer: function(value) {
+    buffer: function (value) {
       if (this.bar) {
         this.bar.buffer = value;
       }
     },
-    open: function(value) {
+    open: function (value) {
       if (this.bar) {
         if (value) {
           this.bar.open();
@@ -99,8 +100,6 @@ export default {
 </script>
 
 <style lang="scss">
-$mdc-theme-primary: #1abc9c;
-
 @import '@material/linear-progress/mdc-linear-progress';
 
 .buffering__stop {

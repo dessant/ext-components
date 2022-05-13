@@ -11,6 +11,7 @@ import {MDCRipple} from '@material/ripple';
 
 export default {
   name: 'v-icon-button',
+
   props: {
     src: {
       type: String,
@@ -38,8 +39,6 @@ export default {
 </script>
 
 <style lang="scss">
-$mdc-theme-primary: #1abc9c;
-
 @import '@material/icon-button/mdc-icon-button';
 
 .mdc-icon-button::-moz-focus-inner {

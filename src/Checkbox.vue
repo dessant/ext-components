@@ -55,7 +55,5 @@ export default {
 </script>
 
 <style lang="scss">
-$mdc-theme-secondary: #1abc9c;
-
 @import '@material/checkbox/mdc-checkbox';
 </style>

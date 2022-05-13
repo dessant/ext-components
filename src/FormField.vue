@@ -27,12 +27,6 @@ export default {
     }
   },
 
-  data: function () {
-    return {
-      mdcFormField: null
-    };
-  },
-
   computed: {
     formFieldClasses: function () {
       return {
@@ -49,18 +43,17 @@ export default {
 
   created: function () {
     this.emitter = mitt();
-    this.emitter.on('input-mounted', this.onInputMounted);
   },
 
   mounted: function () {
     this.mdcFormField = new MDCFormField(this.$el);
+
+    this.emitter.on('input-mounted', this.onInputMounted);
   }
 };
 </script>
 
 <style lang="scss">
-$mdc-theme-primary: #1abc9c;
-
 @import '@material/form-field/mdc-form-field';
 
 .mdc-form-field label {
