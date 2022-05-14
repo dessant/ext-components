@@ -25,6 +25,7 @@
 <script>
 import {MDCMenu, DefaultFocusState} from '@material/menu';
 import {MDCRipple} from '@material/ripple';
+import mitt from 'mitt';
 
 export default {
   name: 'v-menu',
@@ -47,8 +48,10 @@ export default {
     }
   },
 
+  emits: ['selected'],
+
   methods: {
-    onOpen: function() {
+    onOpen: function () {
       if (!this.menu.open) {
         this.menu.open = true;
 
@@ -59,16 +62,17 @@ export default {
       }
     },
 
-    onSelected: function(ev) {
+    onSelected: function (ev) {
       this.$emit('selected', ev.detail.item.dataset.value);
     }
   },
 
-  created: function() {
-    this.$on('open', this.onOpen);
+  created: function () {
+    this.emitter = mitt();
+    this.emitter.on('open', this.onOpen);
   },
 
-  mounted: function() {
+  mounted: function () {
     this.menu = new MDCMenu(this.$el);
     if (this.anchor) {
       this.menu.setAnchorElement(document.querySelector(this.anchor));
@@ -88,8 +92,6 @@ export default {
 </script>
 
 <style lang="scss">
-$mdc-theme-primary: #1abc9c;
-
 @import '@material/list/mdc-list';
 @import '@material/menu-surface/mdc-menu-surface';
 @import '@material/menu/mdc-menu';

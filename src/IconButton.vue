@@ -11,6 +11,7 @@ import {MDCRipple} from '@material/ripple';
 
 export default {
   name: 'v-icon-button',
+
   props: {
     src: {
       type: String,
@@ -26,7 +27,9 @@ export default {
     }
   },
 
-  mounted: function() {
+  emits: ['click'],
+
+  mounted: function () {
     if (this.ripple) {
       const iconButtonRipple = new MDCRipple(this.$el);
       iconButtonRipple.unbounded = true;
@@ -36,8 +39,6 @@ export default {
 </script>
 
 <style lang="scss">
-$mdc-theme-primary: #1abc9c;
-
 @import '@material/icon-button/mdc-icon-button';
 
 .mdc-icon-button::-moz-focus-inner {

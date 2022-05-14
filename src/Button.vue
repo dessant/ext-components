@@ -1,7 +1,7 @@
 <template>
   <button
     class="mdc-button"
-    :class="classes"
+    :class="buttonClasses"
     :disabled="disabled"
     @click="$emit('click')"
   >
@@ -16,6 +16,7 @@ import {MDCRipple} from '@material/ripple';
 
 export default {
   name: 'v-button',
+
   props: {
     label: {
       type: String,
@@ -43,17 +44,19 @@ export default {
     }
   },
 
-  data: function() {
-    return {
-      classes: {
+  emits: ['click'],
+
+  computed: {
+    buttonClasses: function () {
+      return {
         'mdc-button--raised': this.raised,
         'mdc-button--unelevated': this.unelevated,
         'mdc-button--outlined': this.outlined
-      }
-    };
+      };
+    }
   },
 
-  mounted: function() {
+  mounted: function () {
     if (this.ripple) {
       MDCRipple.attachTo(this.$el);
     }
@@ -62,7 +65,5 @@ export default {
 </script>
 
 <style lang="scss">
-$mdc-theme-primary: #1abc9c;
-
 @import '@material/button/mdc-button';
 </style>

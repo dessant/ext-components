@@ -27,11 +27,12 @@
     "@material/menu-surface": "^4.0.0",
     "@material/select": "^4.0.0",
     "@material/switch": "^4.0.0",
-    "@material/textfield": "^4.0.0"
+    "@material/textfield": "^4.0.0",
+    "mitt": "^3.0.0"
   },
   "peerDependencies": {
     "@fontsource/roboto": "^4.5.5",
-    "vue": "^2.6.14"
+    "vue": "^3.2.33"
   },
   "devDependencies": {
     "npm-check-updates": "^12.5.11",

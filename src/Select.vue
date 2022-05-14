@@ -1,5 +1,5 @@
 <template>
-  <div class="mdc-select" :class="classes">
+  <div class="mdc-select" :class="selectClasses">
     <div v-if="outlined" class="mdc-select__anchor">
       <i class="mdc-select__dropdown-icon"></i>
       <div class="mdc-select__selected-text"></div>
@@ -40,19 +40,6 @@ import {MDCSelect} from '@material/select';
 export default {
   name: 'v-select',
 
-  data: function() {
-    return {
-      classes: {
-        'mdc-select--outlined': this.outlined
-      }
-    };
-  },
-
-  model: {
-    prop: 'value',
-    event: 'change'
-  },
-
   props: {
     label: {
       type: String,
@@ -75,13 +62,23 @@ export default {
     }
   },
 
+  emits: ['update:value'],
+
+  computed: {
+    selectClasses: function () {
+      return {
+        'mdc-select--outlined': this.outlined
+      };
+    }
+  },
+
   watch: {
-    value: function() {
+    value: function () {
       if (this.select) {
         this.setValue();
       }
     },
-    disabled: function() {
+    disabled: function () {
       if (this.select) {
         this.setDisabled();
       }
@@ -89,15 +86,15 @@ export default {
   },
 
   methods: {
-    onChange: function() {
-      this.$emit('change', this.select.value);
+    onChange: function () {
+      this.$emit('update:value', this.select.value);
     },
 
-    setDisabled: function() {
+    setDisabled: function () {
       this.select.disabled = this.disabled;
     },
 
-    setValue: function() {
+    setValue: function () {
       if (!this.value) {
         this.select.selectedIndex = -1;
       } else {
@@ -111,7 +108,7 @@ export default {
     }
   },
 
-  mounted: function() {
+  mounted: function () {
     this.select = new MDCSelect(this.$el);
     this.select.listen('MDCSelect:change', this.onChange);
 
@@ -122,8 +119,6 @@ export default {
 </script>
 
 <style lang="scss">
-$mdc-theme-primary: #1abc9c;
-
 @import '@material/list/mdc-list';
 @import '@material/menu-surface/mdc-menu-surface';
 @import '@material/menu/mdc-menu';
