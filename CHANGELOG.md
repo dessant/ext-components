@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.5.0](https://github.com/dessant/ext-components/compare/v0.4.2...v0.5.0) (2022-05-14)
+
+
+### ⚠ BREAKING CHANGES
+
+* Vue 2 is no longer supported
+
+### Features
+
+* migrate to Vue 3 ([80893ff](https://github.com/dessant/ext-components/commit/80893ff0119644b6e830581bbf7edccc8ff9739d))
+
 ### [0.4.2](https://github.com/dessant/ext-components/compare/v0.4.1...v0.4.2) (2022-05-11)
 
 
