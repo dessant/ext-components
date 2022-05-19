@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.6.0](https://github.com/dessant/ext-components/compare/v0.5.0...v0.6.0) (2022-05-19)
+
+
+### Features
+
+* add icon button title ([9d62978](https://github.com/dessant/ext-components/commit/9d62978bb4754a60b955e6fe7b716f53566bbd14))
+
 ## [0.5.0](https://github.com/dessant/ext-components/compare/v0.4.2...v0.5.0) (2022-05-14)
 
 
