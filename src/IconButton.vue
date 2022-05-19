@@ -1,5 +1,10 @@
 <template>
-  <button class="mdc-icon-button" :disabled="disabled" @click="$emit('click')">
+  <button
+    class="mdc-icon-button"
+    :title="title"
+    :disabled="disabled"
+    @click="$emit('click')"
+  >
     <slot>
       <img :src="src" class="mdc-icon-button__icon" />
     </slot>
@@ -14,6 +19,10 @@ export default {
 
   props: {
     src: {
+      type: String,
+      default: ''
+    },
+    title: {
       type: String,
       default: ''
     },
